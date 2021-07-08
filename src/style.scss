@@ -1,0 +1,149 @@
+@import 'partials/variables';
+
+// general rules
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+.container{
+    max-width: 1140px;
+    margin: auto;
+}
+.mini-container{
+    max-width: 900px;
+    margin: auto;
+}
+.small-text{
+    font-size: 0.6rem;
+}
+// HEADER
+header{
+    .container{
+        @include flex(row, space-between, center);
+        nav{
+            ul{
+                @include flex(row, flex-start, center); 
+            }
+        }
+    }
+}
+//JUMBOTRON
+#jumbotron{
+    background-image: url('../img/bg-nico.jpg');
+    height: 500px;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    position:relative;
+    .mini-container{
+        position:absolute;
+        bottom: 0;
+        left:0;
+        right: 0;
+        text-align: center;
+    }
+}
+//MAIN
+//First section: quote
+#quote{
+    .mini-container{
+        padding: 50px 0;
+        border: 1px solid red;
+        @include flex(row,space-between,center);
+        h2{
+            width:60%;
+        }
+    }
+}
+//Second section: tech
+#tech{
+    .container{
+        @include flex(row,space-between,flex-start);
+        padding: 15px;
+        .square{
+            border: 1px solid gray;
+            background-color: #FBF9FA;
+            position: relative;
+        }
+        .big{
+            width: 49%;
+        }
+        .medium{
+            margin-bottom: 2%;
+            @include flex(row,space-between,center);
+        }
+        .small{
+            width: 48%;
+        }
+        .square.big:after, .square.small:after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+        }
+        .square.medium:after {
+            content: "";
+            display: block;
+            padding-bottom: 50%;
+        }
+        .content{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+        }
+    }
+}
+//Third section: carousel w/car-image
+#creative-space{
+    .container{
+        h1{
+            text-align: center
+        }
+        .carousel{
+            @include flex(row,space-between,center);
+            .text{
+                width: 30%;
+            }
+            .img-container{
+                width: 65%;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+//Fourth section: support + form
+#support{
+    .container{
+        @include flex(row,flex-start,center);
+        .description-container{
+            width: 65%;
+            //margin-right: 50px;
+            border: 1px solid red;
+            .features{
+                @include flex(row,space-between,flex-start);
+                border: 1px solid green;
+                >div{
+                    margin-right: 50px;
+                }
+            }
+        }
+        .form-container{
+            border: 1px solid blue;
+        }
+    }
+}
+//Fifth section: slogan
+#slogan{
+    width: 1000px;
+    margin: auto;
+    div{
+        text-align: center;
+        font-size: 1.2rem;
+    }
+}

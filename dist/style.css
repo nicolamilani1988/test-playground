@@ -1,3 +1,21 @@
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px darkgray;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: black;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,19 +32,46 @@ body {
 }
 
 .mini-container {
-  max-width: 900px;
+  max-width: 800px;
   margin: auto;
 }
 
+ul li {
+  list-style-type: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.bigger-text {
+  font-size: 2.5rem;
+}
+
 .small-text {
+  font-size: 0.8rem;
+}
+
+.smaller-text {
   font-size: 0.6rem;
 }
 
+.white-text {
+  color: white;
+}
+
+header {
+  padding: 20px 0;
+}
 header .container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+header .container img {
+  width: 50px;
 }
 header .container nav ul {
   display: flex;
@@ -34,14 +79,28 @@ header .container nav ul {
   justify-content: flex-start;
   align-items: center;
 }
+header .container nav ul li {
+  margin-left: 30px;
+}
+header .container nav ul li a:hover {
+  color: blue;
+}
 
 #jumbotron {
   background-image: url("../img/bg-nico.jpg");
   height: 500px;
-  color: white;
   background-size: cover;
   background-position: center;
   position: relative;
+}
+#jumbotron .layover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background: linear-gradient(0deg, black 15%, rgba(255, 255, 255, 0.0704656863) 98%);
 }
 #jumbotron .mini-container {
   position: absolute;
@@ -49,18 +108,24 @@ header .container nav ul {
   left: 0;
   right: 0;
   text-align: center;
+  padding-bottom: 30px;
+}
+#jumbotron .mini-container h1 {
+  letter-spacing: 10px;
+}
+#jumbotron .mini-container h1 .thin-text {
+  font-weight: 100;
 }
 
 #quote .mini-container {
   padding: 50px 0;
-  border: 1px solid red;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
 }
 #quote .mini-container h2 {
-  width: 60%;
+  width: 65%;
 }
 
 #tech .container {
@@ -71,9 +136,25 @@ header .container nav ul {
   padding: 15px;
 }
 #tech .container .square {
-  border: 1px solid gray;
+  border: 2px solid lightgray;
   background-color: #FBF9FA;
   position: relative;
+}
+#tech .container .square .layover {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  color: white;
+  opacity: 0;
+  padding: 20px;
+  transition: 0.5s;
+}
+#tech .container .square:hover .layover {
+  opacity: 0.9;
+  z-index: 99;
 }
 #tech .container .big {
   width: 49%;
@@ -103,12 +184,123 @@ header .container nav ul {
   width: 100%;
   height: 100%;
   padding: 20px;
+  font-family: "Roboto Condensed", sans-serif;
+}
+#tech .container .square.big .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+#tech .container .square.big .content .text-container {
+  width: 50%;
+  height: 20%;
+}
+#tech .container .square.big .content .img-container {
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+#tech .container .square.big .content .img-container img {
+  width: 90%;
+  margin: auto;
+  height: 80%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+#tech .container .square.medium .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+#tech .container .square.medium .content .text-container, #tech .container .square.medium .content .img-container {
+  width: 50%;
+  height: 100%;
+  overflow-y: auto;
+}
+#tech .container .square.medium .content .img-container {
+  margin-left: 15px;
+  height: 100%;
+}
+#tech .container .square.medium .content .img-container img {
+  width: 100%;
+  height: 100%;
+}
+#tech .container .square.small .content.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+#tech .container .square.small .content.left .text-container {
+  height: 50%;
+  overflow-y: auto;
+}
+#tech .container .square.small .content.left .img-container {
+  width: 100%;
+  height: 50%;
+  border: 1px solid red;
+  text-align: right;
+}
+#tech .container .square.small .content.left .img-container img {
+  width: 60%;
+  height: 100%;
+}
+#tech .container .square.small .content.right h3 {
+  height: 23px;
+  overflow-y: auto;
+}
+#tech .container .square.small .content.right > div {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+#tech .container .square.small .content.right > div .text-container {
+  overflow-x: hidden;
+  width: 65%;
+  height: 100%;
+  overflow-y: auto;
+}
+#tech .container .square.small .content.right > div .img-container {
+  width: 35%;
+  height: 100%;
+}
+#tech .container .square.small .content.right > div .img-container img {
+  width: 100%;
+  height: 90%;
 }
 
-#creative-space .container h1 {
+#creative-space {
+  font-family: "Playfair Display", serif;
+}
+#creative-space .container {
+  padding: 50px 0;
+}
+#creative-space .container > h1 {
   text-align: center;
+  padding-bottom: 50px;
+}
+#creative-space .container .selectors {
+  display: flex;
+}
+#creative-space .container .selectors .selector {
+  width: calc(100% / 3);
+  border-bottom: 2px solid lightgray;
+  text-align: center;
+  color: lightgray;
+}
+#creative-space .container .selectors .selector.active {
+  color: black;
+  border-bottom: 2px solid black;
 }
 #creative-space .container .carousel {
+  border: 1px solid red;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -155,4 +347,42 @@ header .container nav ul {
 #slogan div {
   text-align: center;
   font-size: 1.2rem;
+}
+
+#partners {
+  background-color: lightgray;
+}
+#partners .container ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#partners .container ul li {
+  width: calc(100% / 9);
+  padding: 0 10px;
+}
+#partners .container ul li img {
+  width: 100%;
+}
+
+footer {
+  background-color: #1D2225;
+  color: lightgray;
+}
+footer .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+footer .container > div {
+  width: 25%;
+  border: 1px solid lightblue;
+}
+footer .container > div h3 {
+  color: white;
+}
+footer .container > div img {
+  width: 50%;
 }

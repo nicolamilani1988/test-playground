@@ -5,44 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Locati Food Solution-Pasticceria</title>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- my css -->
     <link rel="stylesheet" href="style.css">
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- VueJS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <!-- my script -->
     <script src="app.js"></script>
 </head>
 <body>
-    <div id="app">
+    <div id="myapp">
         <!-- upper part -->
         <header>
             <div class="container">
                 <!-- logo -->
                 <div>
-                    LOGO
+                    <img src="../img/logo-header.jpg" alt="">
                 </div>
                 <!-- navigation-menu -->
                 <nav>
                     <ul>
-                        <li>MENU</li>
-                        <li>MENU</li>
-                        <li>MENU</li>
-                        <li>MENU</li>
-                        <li>MENU</li>
-                        <li>MENU</li>
-                        <li>MENU</li>
+                        <li v-for="item in menu">
+                            <a href=""><b>{{item}}</b></a>
+                        </li>
                     </ul>
                 </nav>
             </div>
         </header>
         <!-- jumbotron w/bg-image -->
         <section id="jumbotron">
-            <div class="mini-container">
-                <h1>LEARN AND BAKE</h1>
+            <div class="layover"></div>
+            <div class="mini-container white-text">
+                <h1 class="bigger-text">LEARN <span class="thin-text">AND</span> BAKE</h1>
                 <h2>Scopri i segreti della cottura perfetta</h2>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, maiores modi. Doloribus excepturi exercitationem temporibus libero iure, officia quam ex facilis, fuga iste optio tempora, est aliquam recusandae iusto distinctio.</div>
+                <div class="small-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, maiores modi. Doloribus excepturi exercitationem temporibus libero iure, officia quam ex facilis, fuga iste optio tempora, est aliquam recusandae iusto distinctio.</div>
             </div>
         </section>
         <!-- main part w/white-bg -->
@@ -51,11 +60,13 @@
             <section id="quote">
                 <div class="mini-container">
                     <h2>
-                        &lt;&lt; Il design cattura l'attenzione.Robusta,tosta e ribelle:con questa moto le regole sono le uniche che contano davvero.&gt;&gt;
+                        <i class="fas fa-angle-double-left"></i>
+                        Il design cattura l'attenzione.Robusta,tosta e ribelle:con questa moto le regole sono le uniche che contano davvero.
+                        <i class="fas fa-angle-double-right"></i>
                     </h2>
                     <div>
-                        <p><strong>Ulf Musekaamp</strong></p>
-                        <p>Ingegnere automoblistico R-nineT</p>
+                        <p class="smaller-text"><strong>Ulf Musekaamp</strong></p>
+                        <p class="smaller-text">Ingegnere automoblistico R-nineT</p>
                     </div>
                 </div>
             </section>
@@ -64,32 +75,68 @@
                 <div class="container">
                     <!-- big square on the right -->
                     <div class="square big">
+                        <div class="layover">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt officiis eligendi iure nostrum nam optio sit sapiente natus omnis asperiores similique atque, voluptates ex deleniti beatae est repellendus ducimus doloribus.
+                        </div>
                         <div class="content">
-                            <h3>Smartphone</h3>
-                            <div>SCOPRI IL DISPOSITIVO PIU' ADATTO A TE.</div>
+                            <div class="text-container">
+                                <h3>Smartphone</h3>
+                                <div>SCOPRI IL DISPOSITIVO PIU' ADATTO A TE CON IL NOSTRO PERCORSO GUIDATO</div>
+                            </div>
+                            <div class="img-container">
+                                <img src="../img/iphone.png" alt="">
+                            </div>
                         </div>
                     </div>
                     <div class="big">
                         <!-- rectangle on the left -->
                         <div class="square medium">
+                            <div class="layover">
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt officiis eligendi iure nostrum nam optio sit sapiente natus omnis asperiores similique atque, voluptates ex deleniti beatae est repellendus ducimus doloribus.
+                            </div>
                             <div class="content">
-                                <h3>Smartphone</h3>
-                                <div>SCOPRI IL DISPOSITIVO PIU' ADATTO A TE.</div>
+                                <div class="text-container">
+                                    <h3>Vodafone SmartTech</h3>
+                                    <div>SCOPRI CURVE<br>
+                                    LO SMART TRACKER GPS PER MANTENERE AL SICURO CIO' CHE AMI DI PIU'<br>
+                                    ORA A 29 EURO</div>
+                                </div>
+                                <div class="img-container">
+                                    <img src="../img/iphone.png" alt="">
+                                </div>
                             </div>
                         </div>
                         <div class="medium">
                             <!-- small square on the left -->
                             <div class="square small">
-                                <div class="content">
-                                    <h3>Smartphone</h3>
-                                    <div>SCOPRI IL DISPOSITIVO PIU' ADATTO A TE.</div>
+                                <div class="layover">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt officiis eligendi iure nostrum nam optio sit sapiente natus omnis asperiores similique atque, voluptates ex deleniti beatae est repellendus ducimus doloribus.
+                                </div>
+                                <div class="content left">
+                                    <div class="text-container">
+                                        <h3>Mobile WiFi</h3>
+                                        <div>NAVIGA SUBITO OVUNQUE SEI CON TABLET,PC E CHIAVETTE</div>
+                                    </div>
+                                    <div class="img-container">
+                                        <img src="../img/iphone.png" alt="">
+                                    </div>
                                 </div>
                             </div>
                             <!-- small square on the right -->
                             <div class="square small">
-                                <div class="content">
-                                    <h3>Smartphone</h3>
-                                <div>SCOPRI IL DISPOSITIVO PIU' ADATTO A TE.</div>
+                                <div class="layover">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt officiis eligendi iure nostrum nam optio sit sapiente natus omnis asperiores similique atque, voluptates ex deleniti beatae est repellendus ducimus doloribus.
+                                </div>
+                                <div class="content right">
+                                    <h3>Apple Watch serie6</h3>
+                                    <div>
+                                        <div class="text-container">
+                                            <div>CON ONENUMBER A SOLI 17.99€ AL MESE</div>
+                                        </div>
+                                        <div class="img-container">
+                                            <img src="../img/iphone.png" alt="">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -99,13 +146,19 @@
             <!-- MAIN third section: space w/carousel -->
             <section id="creative-space">
                 <div class="container">
-                    <h1>USO CREATIVO DELLO SPAZIO</h1>
+                    <h1 class="bigger-text">USO CREATIVO DELLO SPAZIO</h1>
+                    <!-- selector -->
+                    <div class="selectors">
+                        <div v-for="selector in selectors" class="selector">
+                            {{selector}}
+                        </div>
+                    </div>
                     <!-- carousel -->
                     <div class="carousel">
                         <!-- title -->
                         <div class="text">
-                            <h1>450</h1>
-                            <h1>LITRI</h1>
+                            <h1 class="bigger-text">450</h1>
+                            <h1 class="bigger-text">LITRI</h1>
                             <p>
                                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quidem laborum quia ab possimus suscipit non sit tempore ex, quod dicta saepe odit aspernatur consequatur voluptatum alias consectetur, sunt exercitationem.
                             </p>
@@ -145,8 +198,58 @@
             <section id="slogan">
                 <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi labore veniam ipsa reiciendis dolore velit, accusamus voluptates in<b>qui asperiores saepe eius iusto a amet rerum maxime natus rem iste!</b></div>
             </section>
- 
+            <!-- MAIN sixth section: partners -->
+            <section id="partners">
+                <div class="container">
+                    <ul>
+                        <li>
+                            <img src="../img/partner.png" alt="">
+                        </li>
+                    </ul>
+                </div>
+            </section>
         </main>
+        <!-- bottom part: footer -->
+        <footer>
+            <div class="container">
+                <!-- logo -->
+                <div>
+                    <img src="../img/coca-cola.svg" alt="">
+                </div>
+                <!-- contacts -->
+                <div>
+                    <p class="white-text">Contatti</p>
+                    <p>Corso Magenta 32</p>
+                    <p>20135 Milano</p>
+                </div>
+                <!-- follow us -->
+                <div>
+                    <div class="social-networks">
+                        <p class="white-text">Seguici</p>
+                        <p>Facebook</p>
+                        <p>Instagram</p>
+                    </div>
+                    <div>
+                        <p class="white-text"><b>Policy Privacy</b></p>
+                        <p class="white-text"><b>Cookie Policy</b></p>
+                    </div>
+                </div>
+                <!-- newsletter -->
+                <div>
+                    <p class="white-text">Newsletter</p>
+                    <form action="">
+                        <div class="newsletter-form">
+                            <div class="input-container">
+                                <input type="text" placeholder="Your Email">
+                            </div>
+                            <div class="submit-container">
+                                <button>SEND</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
 </html>

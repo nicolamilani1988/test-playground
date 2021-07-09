@@ -149,23 +149,21 @@
                     <h1 class="bigger-text">USO CREATIVO DELLO SPAZIO</h1>
                     <!-- selector -->
                     <div class="selectors">
-                        <div v-for="selector in selectors" class="selector">
-                            {{selector}}
+                        <div v-for="(version,index) in versions" :class="index == activeIndex ? 'selector active' : 'selector'" @click="getVersion(index)">
+                            {{version['selector']}}
                         </div>
                     </div>
                     <!-- carousel -->
                     <div class="carousel">
                         <!-- title -->
                         <div class="text">
-                            <h1 class="bigger-text">450</h1>
+                            <h1 class="bigger-text">{{versions[activeIndex].litres}}</h1>
                             <h1 class="bigger-text">LITRI</h1>
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quidem laborum quia ab possimus suscipit non sit tempore ex, quod dicta saepe odit aspernatur consequatur voluptatum alias consectetur, sunt exercitationem.
-                            </p>
+                            <p>{{versions[activeIndex].text}}</p>
                         </div>
                         <!-- image -->
                         <div class="img-container">
-                            <img src="../img/mini.jpg" alt="">
+                            <img :src="'../img/' + versions[activeIndex].img" alt="">
                         </div>
                     </div>
                 </div>

@@ -291,6 +291,7 @@ header .container nav ul li a:hover {
 }
 #creative-space .container .selectors .selector {
   width: calc(100% / 3);
+  padding: 10px 0;
   border-bottom: 2px solid lightgray;
   text-align: center;
   color: lightgray;
@@ -300,7 +301,6 @@ header .container nav ul li a:hover {
   border-bottom: 2px solid black;
 }
 #creative-space .container .carousel {
-  border: 1px solid red;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -311,6 +311,7 @@ header .container nav ul li a:hover {
 }
 #creative-space .container .carousel .img-container {
   width: 65%;
+  padding: 20px 0;
 }
 #creative-space .container .carousel .img-container img {
   width: 100%;

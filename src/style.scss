@@ -256,6 +256,7 @@ header{
             display:flex;
             .selector{
                 width: calc(100% / 3);
+                padding: 10px 0;
                 border-bottom: 2px solid lightgray;
                 text-align: center;
                 color: lightgray;
@@ -266,13 +267,13 @@ header{
             }
         }
         .carousel{
-            border: 1px solid red;
             @include flex(row,space-between,center);
             .text{
                 width: 30%;
             }
             .img-container{
                 width: 65%;
+                padding: 20px 0;
                 img{
                     width: 100%;
                 }

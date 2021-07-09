@@ -28,15 +28,30 @@ function init() {
         text: '2 POSTI Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quidem laborum quia ab possimus suscipit non sit tempore ex, quod dicta saepe odit aspernatur consequatur voluptatum alias consectetur, sunt exercitationem.',
         img: 'mini2.jpg'
       }],
-      activeIndex: 0
+      activeIndex: 0,
+      partners: ['partner (1).png', 'partner (2).png', 'partner (3).png', 'partner (4).png', 'partner (5).png', 'partner (6).png', 'partner (7).png', 'partner (8).png', 'partner (9).png', 'partner (10).png'],
+      hiddenPartnerIndex: 9,
+      scrollPosition: null
+    },
+    mounted: function mounted() {
+      this.autoSlide();
+      window.addEventListener('scroll', this.updateScroll);
     },
     methods: {
-      prova: function prova() {
-        console.log(this.test);
-        console.log('popopopo');
-      },
       getVersion: function getVersion(index) {
         this.activeIndex = index;
+      },
+      autoSlide: function autoSlide() {
+        setInterval(this.nextImg, 2000);
+      },
+      nextImg: function nextImg() {
+        var removed = this.partners[0];
+        this.partners.splice(0, 1);
+        this.partners.push(removed);
+      },
+      updateScroll: function updateScroll() {
+        //change header color on scroll
+        this.scrollPosition = window.scrollY;
       }
     }
   });

@@ -16,6 +16,10 @@
   background: black;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -49,6 +53,10 @@ a {
   font-size: 2.5rem;
 }
 
+.big-text {
+  font-size: 2rem;
+}
+
 .small-text {
   font-size: 0.8rem;
 }
@@ -59,6 +67,10 @@ a {
 
 .white-text {
   color: white;
+}
+
+.thin-text {
+  font-weight: 100;
 }
 
 header {
@@ -113,9 +125,6 @@ header .container nav ul li a:hover {
 #jumbotron .mini-container h1 {
   letter-spacing: 10px;
 }
-#jumbotron .mini-container h1 .thin-text {
-  font-weight: 100;
-}
 
 #quote .mini-container {
   padding: 50px 0;
@@ -136,7 +145,7 @@ header .container nav ul li a:hover {
   padding: 15px;
 }
 #tech .container .square {
-  border: 2px solid lightgray;
+  border: 2px solid #d0d0d0;
   background-color: #FBF9FA;
   position: relative;
 }
@@ -167,7 +176,7 @@ header .container nav ul li a:hover {
   align-items: center;
 }
 #tech .container .small {
-  width: 48%;
+  width: 47.5%;
 }
 #tech .container .square.big:after, #tech .container .square.small:after {
   content: "";
@@ -241,7 +250,6 @@ header .container nav ul li a:hover {
 #tech .container .square.small .content.left .img-container {
   width: 100%;
   height: 50%;
-  border: 1px solid red;
   text-align: right;
 }
 #tech .container .square.small .content.left .img-container img {
@@ -292,9 +300,9 @@ header .container nav ul li a:hover {
 #creative-space .container .selectors .selector {
   width: calc(100% / 3);
   padding: 10px 0;
-  border-bottom: 2px solid lightgray;
+  border-bottom: 2px solid #d0d0d0;
   text-align: center;
-  color: lightgray;
+  color: #d0d0d0;
 }
 #creative-space .container .selectors .selector.active {
   color: black;
@@ -324,26 +332,75 @@ header .container nav ul li a:hover {
   align-items: center;
 }
 #support .container .description-container {
-  width: 65%;
-  border: 1px solid red;
+  width: 60%;
 }
 #support .container .description-container .features {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
-  border: 1px solid green;
 }
 #support .container .description-container .features > div {
-  margin-right: 50px;
+  width: 40%;
+  margin-right: 10%;
+}
+#support .container .description-container .features > div h3 {
+  padding: 30px 0 15px;
+}
+#support .container .description-container .features > div p.small-text {
+  padding: 15px 0;
 }
 #support .container .form-container {
-  border: 1px solid blue;
+  width: 400px;
+  border: 2px solid #d0d0d0;
+  padding: 20px;
+  border-radius: 10px;
+}
+#support .container .form-container .input-container {
+  border: 2px solid #d0d0d0;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+#support .container .form-container .input-container .checkin-checkout {
+  display: flex;
+  border-bottom: 2px solid #d0d0d0;
+}
+#support .container .form-container .input-container .checkin-checkout input {
+  border: none;
+  width: calc(100% - 10px);
+}
+#support .container .form-container .input-container .checkin-checkout > div {
+  padding: 10px;
+  width: 50%;
+}
+#support .container .form-container .input-container .checkin-checkout > div:last-child {
+  border-left: 2px solid #d0d0d0;
+}
+#support .container .form-container .input-container .guest-select {
+  padding: 10px;
+}
+#support .container .form-container .input-container .guest-select .select-container {
+  width: 100%;
+}
+#support .container .form-container .input-container .guest-select .select-container select {
+  width: 100%;
+  border: none;
+}
+#support .container .form-container .submit-btn button {
+  width: 100%;
+  border-radius: 10px;
+  color: white;
+  padding: 15px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(90deg, #cd5050 0%, #b0476f 98%);
 }
 
 #slogan {
-  width: 1000px;
+  max-width: 1000px;
   margin: auto;
+  padding: 50px 0;
 }
 #slogan div {
   text-align: center;
@@ -352,6 +409,7 @@ header .container nav ul li a:hover {
 
 #partners {
   background-color: lightgray;
+  padding: 20px 0;
 }
 #partners .container ul {
   display: flex;
@@ -360,8 +418,9 @@ header .container nav ul li a:hover {
   align-items: center;
 }
 #partners .container ul li {
-  width: calc(100% / 9);
+  width: calc((100% - 180px) / 9);
   padding: 0 10px;
+  display: inline-block;
 }
 #partners .container ul li img {
   width: 100%;
@@ -369,9 +428,10 @@ header .container nav ul li a:hover {
 
 footer {
   background-color: #1D2225;
-  color: lightgray;
+  color: #d0d0d0;
 }
 footer .container {
+  padding: 30px 0 70px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -379,11 +439,71 @@ footer .container {
 }
 footer .container > div {
   width: 25%;
-  border: 1px solid lightblue;
 }
-footer .container > div h3 {
-  color: white;
+footer .container > div p.white-text {
+  margin-bottom: 10px;
 }
 footer .container > div img {
   width: 50%;
+}
+footer .container > div .social-networks {
+  margin-bottom: 10px;
+}
+footer .container > div .policies {
+  margin-top: 40px;
+}
+footer .container > div a {
+  color: inherit;
+}
+footer .container > div a:hover {
+  color: #F0E74C;
+}
+footer .container > div .newsletter-form {
+  background-color: white;
+  display: flex;
+}
+footer .container > div .newsletter-form .input-container {
+  width: 50%;
+  padding: 15px;
+}
+footer .container > div .newsletter-form .input-container input {
+  border: none;
+  outline: none;
+}
+footer .container > div .newsletter-form .submit-container {
+  width: 50%;
+}
+footer .container > div .newsletter-form .submit-container button {
+  background-color: #F0E74C;
+  padding: 15px;
+  width: 100%;
+  height: 100%;
+  border: none;
+  cursor: pointer;
+}
+footer .container .contacts > div {
+  margin-top: 10px;
+}
+
+.top-page {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  background-color: blue;
+  display: none;
+  text-align: center;
+  padding: 10px 0;
+}
+.top-page button {
+  cursor: pointer;
+  background-color: #F0E74C;
+  border: none;
+  color: blue;
+  padding: 10px 20px;
+}
+
+.show {
+  display: block;
 }

@@ -147,7 +147,7 @@
             <section id="creative-space">
                 <div class="container">
                     <h1 class="bigger-text">USO CREATIVO DELLO SPAZIO</h1>
-                    <!-- selector -->
+                    <!-- selectors -->
                     <div class="selectors">
                         <div v-for="(version,index) in versions" :class="index == activeIndex ? 'selector active' : 'selector'" @click="getVersion(index)">
                             {{version['selector']}}
@@ -172,36 +172,75 @@
             <section id="support">
                 <div class="container">
                     <div class="description-container">
-                        <h2>Come ti supportiamo</h2>
+                        <!-- title -->
+                        <h1 class="big-text">Come ti supportiamo</h1>
                         <div class="features">
+                            <!-- first feature -->
                             <div>
                                 <h3>Programmi di protezione dell'host</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit quae aperiam veritatis veniam. Ratione assumenda inventore voluptatibus cumque quaerat. Nam ullam error deserunt quo praesentium totam cumque dolore, ipsam ad?</p>
+                                <p class="small-text"><a href=""><b><u>Come ti proteggiamo quando svolgi attività di host</u></b></a></p>
                             </div>
+                            <!-- second feature -->
                             <div>
-                                <h3>Programmi di protezione dell'host</h3>
+                                <h3>Linee guida sulla sicurezza per l'emergenza COVID-19</h3>
                                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti cum aut perspiciatis aliquam animi vero laudantium unde nisi veniam veritatis, excepturi autem quas natus modi beatae incidunt nam suscipit adipisci?</p>
+                                <p class="small-text"><a href=""><b><u>Scopri il progetto avanzato di pulizia</u></b></a></p>
                             </div>
                         </div>
                     </div>
                     <!-- form -->
                     <div class="form-container">
-                        <form action="">
-                            <h3>Aggiungi le date</h3>
+                        <form action="" id="my-form">
+                            <!-- title -->
+                            <h3 class="thin-text">Aggiungi le date per conoscere i prezzi</h3>
+                            <!-- inputs -->
+                            <div class="input-container">
+                                <div class="checkin-checkout">
+                                    <!-- check-in -->
+                                    <div>
+                                        <label class="small-text" for="checkin"><b>CHECK-IN</b></label>
+                                        <input id="checkin" name="checkin" placeholder="Aggiungi una data" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                    </div>
+                                    <!-- checkout -->
+                                    <div>
+                                        <label class="small-text" for="checkout"><b>CHECK-OUT</b></label>
+                                        <input id="checkout" name="checkout" placeholder="Aggiungi una data" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                    </div>
+                                </div>
+                                <div class="guest-select">
+                                    <label class="small-text" for="guests"><b>OSPITI</b></label>
+                                    <div class="select-container">
+                                        <select name="guests" id="guests">
+                                            <option value="1">1 ospite</option>
+                                            <option value="2">2 ospiti</option>
+                                            <option value="3">3 ospiti</option>
+                                            <option value="4">4 ospiti</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- submit button -->
+                            <div class="submit-btn">
+                                <button type="submit" id="submit">Controlla la disponibilità</button>
+                            </div>
                         </form>
                     </div>
                 </div>
             </section>
             <!-- MAIN fifth section: slogan -->
             <section id="slogan">
-                <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi labore veniam ipsa reiciendis dolore velit, accusamus voluptates in<b>qui asperiores saepe eius iusto a amet rerum maxime natus rem iste!</b></div>
+                <div>
+                    <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi labore veniam ipsa reiciendis dolore velit, accusamus voluptates in.</span>
+                    <p><b>qui asperiores saepe eius iusto a amet rerum maxime natus rem iste!</b></p>
+                </div>
             </section>
             <!-- MAIN sixth section: partners -->
             <section id="partners">
                 <div class="container">
                     <ul>
-                        <li>
-                            <img src="../img/partner.png" alt="">
+                        <li v-for="(partner,index) in partners" v-if="index != hiddenPartnerIndex" v-bind:key="partner">
+                            <img :src="'../img/' + partner" alt="">
                         </li>
                     </ul>
                 </div>
@@ -215,21 +254,23 @@
                     <img src="../img/coca-cola.svg" alt="">
                 </div>
                 <!-- contacts -->
-                <div>
+                <div class="contacts">
                     <p class="white-text">Contatti</p>
                     <p>Corso Magenta 32</p>
                     <p>20135 Milano</p>
+                    <div>+390222334455</div>
+                    <p>info@infomail.com</p>
                 </div>
                 <!-- follow us -->
                 <div>
                     <div class="social-networks">
                         <p class="white-text">Seguici</p>
-                        <p>Facebook</p>
-                        <p>Instagram</p>
+                        <p><a href="">Facebook</a></p>
+                        <p><a href="">Instagram</a></p>
                     </div>
-                    <div>
-                        <p class="white-text"><b>Policy Privacy</b></p>
-                        <p class="white-text"><b>Cookie Policy</b></p>
+                    <div class="policies">
+                        <div class="white-text"><a href=""><b>Policy Privacy</b></a></div>
+                        <div class="white-text"><a href=""><b>Cookie Policy</b></a></div>
                     </div>
                 </div>
                 <!-- newsletter -->
@@ -241,13 +282,20 @@
                                 <input type="text" placeholder="Your Email">
                             </div>
                             <div class="submit-container">
-                                <button>SEND</button>
+                                <button class="white-text">SEND</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
         </footer>
+
+        <!-- top-page function ON CLICK -->
+        <div class="top-page" :class="{show: scrollPosition > 300}">
+            <a href="#my-form">
+                <button>VAI AL FORM</button>
+            </a>    
+        </div>
     </div>
 </body>
 </html>

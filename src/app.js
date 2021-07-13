@@ -2,8 +2,8 @@ function init(){
     new Vue({
         el:"#myapp",
         data: {
-            menu: ['Ideas','Expertise','Services','Insights','About','Contact','Careers'],
-            versions:[
+            menu: ['Ideas','Expertise','Services','Insights','About','Contact','Careers'], //navbar links
+            versions:[ //car versions
                 {
                     selector: '5 POSTI',
                     litres: '450',
@@ -23,14 +23,14 @@ function init(){
                     img: 'mini2.jpg'
                 },
             ],
-            activeIndex: 0,
-            partners:['partner (1).png','partner (2).png','partner (3).png','partner (4).png','partner (5).png','partner (6).png','partner (7).png','partner (8).png','partner (9).png','partner (10).png'],
-            hiddenPartnerIndex: 9,
-            scrollPosition: null,
-            isMenuVisible: false,
-            contactNumber: null,
-            date: null,
-            checkin: null
+            activeIndex: 0, // active car-version
+            partners:['partner (1).png','partner (2).png','partner (3).png','partner (4).png','partner (5).png','partner (6).png','partner (7).png','partner (8).png','partner (9).png','partner (10).png'], //partners image
+            hiddenPartnerIndex: 9, //hidden partner
+            scrollPosition: null, // hide blue banner
+            isMenuVisible: false, // hide hamburger dropdown-menu
+            contactNumber: null, // form number 
+            date: null, // default date - today
+            checkin: null // checkin-date
         },
         mounted(){
             this.getDate();
@@ -39,10 +39,10 @@ function init(){
             this.generateContactNumber();
         },
         methods: {
-            getVersion: function(index){
+            getVersion: function(index){ // change car-version
                 this.activeIndex = index;
             },
-            autoSlide: function() {
+            autoSlide: function() { // partners slideshow
                 setInterval(this.nextImg, 2000);
             },
             nextImg: function(){
@@ -50,19 +50,19 @@ function init(){
               this.partners.splice(0,1);
               this.partners.push(removed);
             },
-            updateScroll() { //change header color on scroll
+            updateScroll() { //make banner appaer on scroll
                 this.scrollPosition = window.scrollY;
             },
-            showMenu: function(){
+            showMenu: function(){ //show hamburger dropdown-menu
                 this.isMenuVisible = !this.isMenuVisible;
             },
-            hideMenu: function(){
+            hideMenu: function(){ //hide hamburger dropdown-menu
                 this.isMenuVisible = false;
             },
-            generateContactNumber: function(){
+            generateContactNumber: function(){ // generate ID form number
                 this.contactNumber = Math.random() * 100000 | 0;
             },
-            getDate: function (){
+            getDate: function (){ // get date (today)
                 let d = new Date(),
                 month = ''+(d.getMonth()+1),
                 day = ''+ d.getDate(),

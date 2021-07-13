@@ -17,8 +17,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- my css -->
-    <link rel="stylesheet" href="style.css">
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <!-- initialise SDK with user_id -->
@@ -27,7 +25,7 @@
             emailjs.init('user_k0N9UbS4x5FbfA02k7hqQ');
         })();
     </script>
-    <!-- submit form -->
+    <!-- submit emails -->
     <script type="text/javascript">
         window.onload = function() {
             document.getElementById('my-form').addEventListener('submit', function(event) {
@@ -51,6 +49,8 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <!-- my script -->
     <script src="app.js"></script>
+    <!-- my css -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="myapp">
@@ -69,7 +69,7 @@
                         </li>
                     </ul>
                 </nav>
-                <!-- hamburger nascosto -->
+                <!-- hidden Hamburger - Media query > 768px -->
                 <nav id="hamburger-menu">
                     <i @click="showMenu" class="fas fa-bars big-text"></i>
                     <ul v-if="isMenuVisible" @mouseleave = "hideMenu">
@@ -82,7 +82,9 @@
         </header>
         <!-- jumbotron w/bg-image -->
         <section id="jumbotron">
+            <!-- black bg -->
             <div class="layover"></div>
+            <!-- description -->
             <div class="mini-container white-text">
                 <h1 class="bigger-text">LEARN <span class="thin-text">AND</span> BAKE</h1>
                 <h2>Scopri i segreti della cottura perfetta</h2>
@@ -108,7 +110,7 @@
             <!-- MAIN second section: tech features -->
             <section id="tech">
                 <div class="container">
-                    <!-- big square on the right -->
+                    <!-- big square on the left -->
                     <div class="square big">
                         <div class="layover">
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt officiis eligendi iure nostrum nam optio sit sapiente natus omnis asperiores similique atque, voluptates ex deleniti beatae est repellendus ducimus doloribus.
@@ -124,7 +126,7 @@
                         </div>
                     </div>
                     <div class="big">
-                        <!-- rectangle on the left -->
+                        <!-- rectangle on the right -->
                         <div class="square medium">
                             <div class="layover">
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt officiis eligendi iure nostrum nam optio sit sapiente natus omnis asperiores similique atque, voluptates ex deleniti beatae est repellendus ducimus doloribus.
@@ -178,7 +180,7 @@
                     </div>
                 </div>
             </section>
-            <!-- MAIN third section: space w/carousel -->
+            <!-- MAIN third section: space w/car-image -->
             <section id="creative-space">
                 <div class="container">
                     <h1 class="bigger-text">USO CREATIVO DELLO SPAZIO</h1>
@@ -206,6 +208,7 @@
             <!-- MAIN fourth section: support + form -->
             <section id="support">
                 <div class="container">
+                    <!-- left part : description -->
                     <div class="description-container">
                         <!-- title -->
                         <h1 class="big-text">Come ti supportiamo</h1>
@@ -224,13 +227,14 @@
                             </div>
                         </div>
                     </div>
-                    <!-- form -->
+                    <!-- right part: form -->
                     <div class="form-container">
                         <form id="my-form">
                             <!-- title -->
                             <h3 class="thin-text">Aggiungi le date per conoscere i prezzi</h3>
                             <!-- inputs -->
                             <div class="input-container">
+                                <!-- text inputs -->
                                 <div class="text-data">
                                     <!-- name -->
                                     <div>
@@ -254,6 +258,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- date inputs -->
                                 <div class="checkin-checkout">
                                     <!-- check-in -->
                                     <div>
@@ -266,6 +271,7 @@
                                         <input :min="checkin" id="checkout" name="checkout" placeholder="Aggiungi una data" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" required>
                                     </div>
                                 </div>
+                                <!-- select menu -->
                                 <div class="guest-select">
                                     <label class="small-text" for="guests"><b>OSPITI</b></label>
                                     <div class="select-container">
@@ -298,6 +304,7 @@
             <!-- MAIN sixth section: partners -->
             <section id="partners">
                 <div class="container">
+                    <!-- partner carousel -->
                     <ul>
                         <li v-for="(partner,index) in partners" v-if="index != hiddenPartnerIndex" v-bind:key="partner">
                             <img :src="'../img/' + partner" alt="">
@@ -350,8 +357,8 @@
             </div>
         </footer>
 
-        <!-- top-page function ON CLICK -->
-        <div class="top-page" :class="{show: scrollPosition > 300}">
+        <!-- go-to-form function ON CLICK -->
+        <div class="go-to-form" :class="{show: scrollPosition > 300}">
             <a href="#my-form">
                 <button>VAI AL FORM</button>
             </a>    

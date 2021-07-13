@@ -480,7 +480,7 @@ footer{
     }
 }
 // Scroll to Form icon
-.top-page{
+.go-to-form{
   position: fixed;
   bottom: 0;
   right: 0;
@@ -502,6 +502,7 @@ footer{
     display: block;
 }  
 
+//RESPONSIVENESS
 @media screen and (max-width: 768px){
     // HEADER
     header{

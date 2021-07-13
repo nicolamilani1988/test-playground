@@ -522,7 +522,7 @@ footer .container .contacts > div {
   margin-top: 10px;
 }
 
-.top-page {
+.go-to-form {
   position: fixed;
   bottom: 0;
   right: 0;
@@ -533,7 +533,7 @@ footer .container .contacts > div {
   text-align: center;
   padding: 10px 0;
 }
-.top-page button {
+.go-to-form button {
   cursor: pointer;
   background-color: #F0E74C;
   border: none;

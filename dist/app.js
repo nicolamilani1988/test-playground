@@ -12,7 +12,9 @@ function init() {
     el: "#myapp",
     data: {
       menu: ['Ideas', 'Expertise', 'Services', 'Insights', 'About', 'Contact', 'Careers'],
-      versions: [{
+      //navbar links
+      versions: [//car versions
+      {
         selector: '5 POSTI',
         litres: '450',
         text: '5 POSTI Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et quidem laborum quia ab possimus suscipit non sit tempore ex, quod dicta saepe odit aspernatur consequatur voluptatum alias consectetur, sunt exercitationem.',
@@ -29,13 +31,21 @@ function init() {
         img: 'mini2.jpg'
       }],
       activeIndex: 0,
+      // active car-version
       partners: ['partner (1).png', 'partner (2).png', 'partner (3).png', 'partner (4).png', 'partner (5).png', 'partner (6).png', 'partner (7).png', 'partner (8).png', 'partner (9).png', 'partner (10).png'],
+      //partners image
       hiddenPartnerIndex: 9,
+      //hidden partner
       scrollPosition: null,
+      // hide blue banner
       isMenuVisible: false,
+      // hide hamburger dropdown-menu
       contactNumber: null,
+      // form number 
       date: null,
-      checkin: null
+      // default date - today
+      checkin: null // checkin-date
+
     },
     mounted: function mounted() {
       this.getDate();
@@ -45,9 +55,11 @@ function init() {
     },
     methods: {
       getVersion: function getVersion(index) {
+        // change car-version
         this.activeIndex = index;
       },
       autoSlide: function autoSlide() {
+        // partners slideshow
         setInterval(this.nextImg, 2000);
       },
       nextImg: function nextImg() {
@@ -56,19 +68,23 @@ function init() {
         this.partners.push(removed);
       },
       updateScroll: function updateScroll() {
-        //change header color on scroll
+        //make banner appaer on scroll
         this.scrollPosition = window.scrollY;
       },
       showMenu: function showMenu() {
+        //show hamburger dropdown-menu
         this.isMenuVisible = !this.isMenuVisible;
       },
       hideMenu: function hideMenu() {
+        //hide hamburger dropdown-menu
         this.isMenuVisible = false;
       },
       generateContactNumber: function generateContactNumber() {
+        // generate ID form number
         this.contactNumber = Math.random() * 100000 | 0;
       },
       getDate: function getDate() {
+        // get date (today)
         var d = new Date(),
             month = '' + (d.getMonth() + 1),
             day = '' + d.getDate(),

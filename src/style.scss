@@ -287,6 +287,7 @@ header{
         }
         .selectors{
             display:flex;
+            cursor: pointer;
             .selector{
                 width: calc(100% / 3);
                 padding: 10px 0;
@@ -574,6 +575,18 @@ footer{
             }
             .form-container{
                 margin: auto;
+            }
+        }
+    }
+    //Sixth section: partners
+    #partners{
+        padding: 10px 0;
+        .container{
+            ul{
+                li{
+                    width: calc((100% - 90px) / 9);
+                    padding: 0 5px;
+                }
             }
         }
     }

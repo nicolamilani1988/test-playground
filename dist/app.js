@@ -33,9 +33,12 @@ function init() {
       hiddenPartnerIndex: 9,
       scrollPosition: null,
       isMenuVisible: false,
-      contactNumber: null
+      contactNumber: null,
+      date: null,
+      checkin: null
     },
     mounted: function mounted() {
+      this.getDate();
       this.autoSlide();
       window.addEventListener('scroll', this.updateScroll);
       this.generateContactNumber();
@@ -64,6 +67,23 @@ function init() {
       },
       generateContactNumber: function generateContactNumber() {
         this.contactNumber = Math.random() * 100000 | 0;
+      },
+      getDate: function getDate() {
+        var d = new Date(),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+
+        if (month.length < 2) {
+          month = '0' + month;
+        }
+
+        if (day.length < 2) {
+          day = '0' + day;
+        }
+
+        this.date = [year, month, day].join('-');
+        this.checkin = [year, month, day].join('-');
       }
     }
   });

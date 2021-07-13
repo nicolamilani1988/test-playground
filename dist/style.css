@@ -325,6 +325,7 @@ header .container #hamburger-menu ul li a:hover {
 }
 #creative-space .container .selectors {
   display: flex;
+  cursor: pointer;
 }
 #creative-space .container .selectors .selector {
   width: calc(100% / 3);
@@ -617,6 +618,14 @@ footer .container .contacts > div {
   }
   #support .container .form-container {
     margin: auto;
+  }
+
+  #partners {
+    padding: 10px 0;
+  }
+  #partners .container ul li {
+    width: calc((100% - 90px) / 9);
+    padding: 0 5px;
   }
 
   footer .container {

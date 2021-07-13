@@ -38,9 +38,6 @@
                     }, function(error) {
                         console.log('FAILED...', error);
                     });
-            });
-            document.getElementById('my-form').addEventListener('submit', function(event) {
-                event.preventDefault();
                 emailjs.sendForm('contact_service', 'thanks_template', this)
                     .then(function() {
                         console.log('SUCCESS!');
@@ -239,21 +236,21 @@
                                     <div>
                                         <label class="small-text" for="name"><b>NOME</b></label>
                                         <div class="input-box">
-                                            <input id="name" name="name" placeholder="Inserisci nome" type="text">
+                                            <input id="name" name="name" placeholder="Inserisci nome" type="text" minlength="3" maxlength="255" required>
                                         </div>
                                     </div>
                                     <!-- lastname -->
                                     <div>
                                         <label class="small-text" for="lastname"><b>COGNOME</b></label>
                                         <div class="input-box">
-                                            <input id="lastname" name="lastname" placeholder="Inserisci cognome" type="text">
+                                            <input id="lastname" name="lastname" placeholder="Inserisci cognome" type="text" minlength="3" maxlength="255" required>
                                         </div>
                                     </div>
                                     <!-- email -->
                                     <div>
                                         <label class="small-text" for="email"><b>EMAIL</b></label>
                                         <div class="input-box">
-                                            <input id="email" name="email" placeholder="Inserisci mail" type="mail">
+                                            <input id="email" name="email" placeholder="Inserisci mail" type="email" minlength="3" maxlength="255" required>
                                         </div>
                                     </div>
                                 </div>
@@ -261,18 +258,19 @@
                                     <!-- check-in -->
                                     <div>
                                         <label class="small-text" for="checkin"><b>CHECK-IN</b></label>
-                                        <input id="checkin" name="checkin" placeholder="Aggiungi una data" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                        <input :min="date" id="checkin" v-model ="checkin" name="checkin" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" required>
                                     </div>
                                     <!-- checkout -->
                                     <div>
                                         <label class="small-text" for="checkout"><b>CHECK-OUT</b></label>
-                                        <input id="checkout" name="checkout" placeholder="Aggiungi una data" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                        <input :min="checkin" id="checkout" name="checkout" placeholder="Aggiungi una data" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" required>
                                     </div>
                                 </div>
                                 <div class="guest-select">
                                     <label class="small-text" for="guests"><b>OSPITI</b></label>
                                     <div class="select-container">
-                                        <select name="guests" id="guests">
+                                        <select name="guests" id="guests" required>
+                                            <option value="" disabled selected>Select number of guests</option>
                                             <option value="1">1 ospite</option>
                                             <option value="2">2 ospiti</option>
                                             <option value="3">3 ospiti</option>
@@ -284,7 +282,7 @@
                             </div>
                             <!-- submit button -->
                             <div class="submit-btn">
-                                <input type="submit" value="Controlla la disponibilità" @click="generateContactNumber">
+                                <input type="submit" value="Invia" @click="generateContactNumber">
                             </div>
                         </form>
                     </div>

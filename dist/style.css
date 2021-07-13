@@ -16,14 +16,14 @@
   background: black;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -426,7 +426,7 @@ header .container #hamburger-menu ul li a:hover {
   width: 100%;
   border: none;
 }
-#support .container .form-container .submit-btn button {
+#support .container .form-container .submit-btn input {
   width: 100%;
   border-radius: 10px;
   color: white;
@@ -527,7 +527,7 @@ footer .container .contacts > div {
   right: 0;
   left: 0;
   z-index: 999;
-  background-color: blue;
+  background-color: #00008d;
   display: none;
   text-align: center;
   padding: 10px 0;
@@ -536,7 +536,7 @@ footer .container .contacts > div {
   cursor: pointer;
   background-color: #F0E74C;
   border: none;
-  color: blue;
+  color: #00008d;
   padding: 10px 20px;
 }
 

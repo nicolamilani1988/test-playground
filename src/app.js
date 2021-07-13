@@ -28,10 +28,12 @@ function init(){
             hiddenPartnerIndex: 9,
             scrollPosition: null,
             isMenuVisible: false,
+            contactNumber: null,
         },
         mounted(){
             this.autoSlide();
             window.addEventListener('scroll', this.updateScroll);
+            this.generateContactNumber();
         },
         methods: {
             getVersion: function(index){
@@ -53,6 +55,9 @@ function init(){
             },
             hideMenu: function(){
                 this.isMenuVisible = false;
+            },
+            generateContactNumber: function(){
+                this.contactNumber = Math.random() * 100000 | 0;
             }
         },
     });

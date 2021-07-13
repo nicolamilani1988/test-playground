@@ -19,8 +19,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- my css -->
     <link rel="stylesheet" href="style.css">
-    <!-- JQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <!-- initialise SDK with user_id -->
+    <script type="text/javascript">
+        (function() {
+            emailjs.init('user_k0N9UbS4x5FbfA02k7hqQ');
+        })();
+    </script>
+    <!-- submit form -->
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('my-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                emailjs.sendForm('contact_service', 'contact_form', this)
+                    .then(function() {
+                        console.log('SUCCESS!');
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+            document.getElementById('my-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                emailjs.sendForm('contact_service', 'thanks_template', this)
+                    .then(function() {
+                        console.log('SUCCESS!');
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
     <!-- VueJS -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <!-- my script -->
@@ -177,7 +206,7 @@
                     </div>
                 </div>
             </section>
-            <!-- MAIN fourth section: support -->
+            <!-- MAIN fourth section: support + form -->
             <section id="support">
                 <div class="container">
                     <div class="description-container">
@@ -200,7 +229,7 @@
                     </div>
                     <!-- form -->
                     <div class="form-container">
-                        <form action="" id="my-form">
+                        <form id="my-form">
                             <!-- title -->
                             <h3 class="thin-text">Aggiungi le date per conoscere i prezzi</h3>
                             <!-- inputs -->
@@ -250,11 +279,12 @@
                                             <option value="4">4 ospiti</option>
                                         </select>
                                     </div>
+                                    <input :value="contactNumber" type="hidden" id="contact_number" name="contact_number">
                                 </div>
                             </div>
                             <!-- submit button -->
                             <div class="submit-btn">
-                                <button type="submit" id="submit">Controlla la disponibilità</button>
+                                <input type="submit" value="Controlla la disponibilità" @click="generateContactNumber">
                             </div>
                         </form>
                     </div>

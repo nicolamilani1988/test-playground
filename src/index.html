@@ -29,15 +29,24 @@
 <body>
     <div id="myapp">
         <!-- upper part -->
-        <header>
+        <header @mouseleave = "hideMenu">
             <div class="container">
                 <!-- logo -->
                 <div>
                     <img src="../img/logo-header.jpg" alt="">
                 </div>
                 <!-- navigation-menu -->
-                <nav>
+                <nav id="navbar-menu">
                     <ul>
+                        <li v-for="item in menu">
+                            <a href=""><b>{{item}}</b></a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- hamburger nascosto -->
+                <nav id="hamburger-menu">
+                    <i @click="showMenu" class="fas fa-bars big-text"></i>
+                    <ul v-if="isMenuVisible" @mouseleave = "hideMenu">
                         <li v-for="item in menu">
                             <a href=""><b>{{item}}</b></a>
                         </li>
@@ -196,6 +205,29 @@
                             <h3 class="thin-text">Aggiungi le date per conoscere i prezzi</h3>
                             <!-- inputs -->
                             <div class="input-container">
+                                <div class="text-data">
+                                    <!-- name -->
+                                    <div>
+                                        <label class="small-text" for="name"><b>NOME</b></label>
+                                        <div class="input-box">
+                                            <input id="name" name="name" placeholder="Inserisci nome" type="text">
+                                        </div>
+                                    </div>
+                                    <!-- lastname -->
+                                    <div>
+                                        <label class="small-text" for="lastname"><b>COGNOME</b></label>
+                                        <div class="input-box">
+                                            <input id="lastname" name="lastname" placeholder="Inserisci cognome" type="text">
+                                        </div>
+                                    </div>
+                                    <!-- email -->
+                                    <div>
+                                        <label class="small-text" for="email"><b>EMAIL</b></label>
+                                        <div class="input-box">
+                                            <input id="email" name="email" placeholder="Inserisci mail" type="mail">
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="checkin-checkout">
                                     <!-- check-in -->
                                     <div>

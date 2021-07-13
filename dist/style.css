@@ -49,6 +49,11 @@ a {
   text-decoration: none;
 }
 
+input {
+  border: none;
+  outline: none;
+}
+
 .bigger-text {
   font-size: 2.5rem;
 }
@@ -75,6 +80,7 @@ a {
 
 header {
   padding: 20px 0;
+  position: relative;
 }
 header .container {
   display: flex;
@@ -85,16 +91,36 @@ header .container {
 header .container img {
   width: 50px;
 }
-header .container nav ul {
+header .container #navbar-menu ul {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
 }
-header .container nav ul li {
+header .container #navbar-menu ul li {
   margin-left: 30px;
 }
-header .container nav ul li a:hover {
+header .container #navbar-menu ul li a:hover {
+  color: blue;
+}
+header .container #hamburger-menu {
+  cursor: pointer;
+  display: none;
+}
+header .container #hamburger-menu ul {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  z-index: 99;
+  padding: 10px;
+  background-color: white;
+  border: 2px solid #d0d0d0;
+  border-radius: 10px;
+}
+header .container #hamburger-menu ul li {
+  margin: 10px 0;
+}
+header .container #hamburger-menu ul li a:hover {
   color: blue;
 }
 
@@ -160,6 +186,9 @@ header .container nav ul li a:hover {
   opacity: 0;
   padding: 20px;
   transition: 0.5s;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 #tech .container .square:hover .layover {
   opacity: 0.9;
@@ -313,6 +342,7 @@ header .container nav ul li a:hover {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 0 20px;
 }
 #creative-space .container .carousel .text {
   width: 30%;
@@ -361,9 +391,19 @@ header .container nav ul li a:hover {
   border-radius: 10px;
   margin: 20px 0;
 }
+#support .container .form-container .input-container .text-data {
+  padding: 10px;
+}
+#support .container .form-container .input-container .text-data .input-box {
+  border: 2px solid #d0d0d0;
+}
+#support .container .form-container .input-container .text-data .input-box input {
+  padding: 0 5px;
+}
 #support .container .form-container .input-container .checkin-checkout {
   display: flex;
   border-bottom: 2px solid #d0d0d0;
+  border-top: 2px solid #d0d0d0;
 }
 #support .container .form-container .input-container .checkin-checkout input {
   border: none;
@@ -466,10 +506,6 @@ footer .container > div .newsletter-form .input-container {
   width: 50%;
   padding: 15px;
 }
-footer .container > div .newsletter-form .input-container input {
-  border: none;
-  outline: none;
-}
 footer .container > div .newsletter-form .submit-container {
   width: 50%;
 }
@@ -506,4 +542,102 @@ footer .container .contacts > div {
 
 .show {
   display: block;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    padding: 20px;
+  }
+  header .container #navbar-menu {
+    display: none;
+  }
+  header .container #hamburger-menu {
+    display: block;
+  }
+
+  #quote .mini-container {
+    padding: 50px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  #quote .mini-container h2 {
+    width: 100%;
+  }
+
+  #tech .container {
+    flex-wrap: wrap;
+    padding: 15px;
+  }
+  #tech .container .big {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #creative-space .container .carousel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  #creative-space .container .carousel .text {
+    width: 90%;
+    margin: auto;
+  }
+  #creative-space .container .carousel .img-container {
+    width: 90%;
+    margin: auto;
+  }
+
+  #support .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  #support .container .description-container {
+    width: 100%;
+    padding: 0 20px;
+  }
+  #support .container .description-container h1 {
+    text-align: center;
+  }
+  #support .container .description-container .features {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  #support .container .description-container .features > div {
+    width: 45%;
+    margin: auto;
+  }
+  #support .container .form-container {
+    margin: auto;
+  }
+
+  footer .container {
+    padding: 30px 20px 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  footer .container > div {
+    width: 50%;
+    margin-bottom: 40px;
+  }
+  footer .container > div .newsletter-form {
+    flex-wrap: wrap;
+  }
+  footer .container > div .newsletter-form .input-container {
+    width: 100%;
+  }
+  footer .container > div .newsletter-form .submit-container {
+    width: 100%;
+  }
 }

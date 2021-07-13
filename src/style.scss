@@ -28,6 +28,10 @@ a{
   color: inherit;
   text-decoration: none;
 }
+input{
+    border: none;
+    outline: none;
+}
 .bigger-text{
   font-size: 2.5rem;
 }
@@ -50,18 +54,39 @@ a{
 // HEADER
 header{
     padding: 20px 0;
+    position: relative;
     .container{
         @include flex(row, space-between, center);
         img{
             width: 50px;
         }
-        nav{
+        #navbar-menu{
             ul{
                 @include flex(row, flex-start, center); 
                 li{
                     margin-left: 30px;
                     a:hover{
                         color: blue;
+                    }
+                }
+            }
+        }
+        #hamburger-menu{
+            cursor: pointer;
+            display:none;
+            ul{
+                position: absolute;
+                top: 80px;
+                right: 20px;
+                z-index: 99;
+                padding: 10px;
+                background-color: white;
+                border: 2px solid $lightgray;
+                border-radius: 10px;
+                li{
+                    margin: 10px 0;
+                    a:hover{
+                        color:blue;
                     }
                 }
             }
@@ -127,6 +152,9 @@ header{
                 opacity: 0;
                 padding:20px;
                 transition: 0.5s;
+                height: 100%;
+                overflow-y: auto;
+                overflow-x: hidden;
             }
             &:hover{
                 .layover{
@@ -273,6 +301,7 @@ header{
         }
         .carousel{
             @include flex(row,space-between,center);
+            padding: 0 20px;
             .text{
                 width: 30%;
             }
@@ -315,9 +344,19 @@ header{
                 border: 2px solid $lightgray;
                 border-radius: 10px;
                 margin: 20px 0;
+                .text-data{
+                    padding: 10px;
+                    .input-box{
+                        border: 2px solid $lightgray;
+                        input{
+                            padding: 0 5px;
+                        }
+                    }
+                }
                 .checkin-checkout{
                     display:flex;
                     border-bottom: 2px solid $lightgray;
+                    border-top: 2px solid $lightgray;
                     input{
                       border:none; 
                       width: calc(100% - 10px); 
@@ -417,10 +456,6 @@ footer{
                 .input-container{
                     width: 50%;
                     padding: 15px;
-                    input{
-                        border: none;
-                        outline: none;
-                    }
                 }
                 .submit-container{
                     width: 50%;
@@ -432,8 +467,6 @@ footer{
                         border: none;
                         cursor: pointer;
                     }
-                    
-
                 }
             }
         }
@@ -467,4 +500,103 @@ footer{
 .show{
     display: block;
 }  
+
+@media screen and (max-width: 768px){
+    // HEADER
+    header{
+        padding: 20px;
+        .container{
+            #navbar-menu{
+                display:none;
+            }
+            #hamburger-menu{
+                display:block;
+            }
+        }
+    }
+    //MAIN
+    //First section: quote
+    #quote{
+        .mini-container{
+            padding: 50px 30px;
+            @include flex(column,flex-start,flex-start);
+            h2{
+                width:100%;
+            }
+        }
+    }
+    //Second section: tech
+    #tech{
+        .container{
+            flex-wrap: wrap;
+            padding: 15px;
+            .big{
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    //Third section: carousel w/car-image
+    #creative-space{
+        .container{
+            .carousel{
+                @include flex(row,space-between,center);
+                flex-wrap: wrap;
+                .text{
+                    width: 90%;
+                    margin: auto;
+                }
+                .img-container{
+                    width: 90%;
+                    margin: auto;
+                }
+            }
+        }
+    }
+    //Fourth section: support + form
+    #support{
+        .container{
+            @include flex(row,flex-start,center);
+            flex-wrap: wrap;
+            .description-container{
+                width: 100%;
+                padding: 0 20px;
+                h1{
+                    text-align: center;
+                }
+                .features{
+                    @include flex(row,space-between,flex-start);
+                    >div{
+                        width: 45%;
+                        margin: auto;
+                    }
+                }
+            }
+            .form-container{
+                margin: auto;
+            }
+        }
+    }
+    //LAST PART: Footer
+    footer{
+        .container{
+            padding: 30px 20px 70px;
+            @include flex(row,space-between,flex-start);
+            flex-wrap: wrap;
+            >div{
+                width: 50%;
+                margin-bottom: 40px;
+                .newsletter-form{
+                    flex-wrap: wrap;
+                    .input-container{
+                        width: 100%;
+                    }
+                    .submit-container{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
 

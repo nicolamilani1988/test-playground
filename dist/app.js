@@ -31,7 +31,8 @@ function init() {
       activeIndex: 0,
       partners: ['partner (1).png', 'partner (2).png', 'partner (3).png', 'partner (4).png', 'partner (5).png', 'partner (6).png', 'partner (7).png', 'partner (8).png', 'partner (9).png', 'partner (10).png'],
       hiddenPartnerIndex: 9,
-      scrollPosition: null
+      scrollPosition: null,
+      isMenuVisible: false
     },
     mounted: function mounted() {
       this.autoSlide();
@@ -52,6 +53,12 @@ function init() {
       updateScroll: function updateScroll() {
         //change header color on scroll
         this.scrollPosition = window.scrollY;
+      },
+      showMenu: function showMenu() {
+        this.isMenuVisible = !this.isMenuVisible;
+      },
+      hideMenu: function hideMenu() {
+        this.isMenuVisible = false;
       }
     }
   });
